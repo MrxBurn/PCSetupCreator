@@ -22,60 +22,70 @@ class _LoginState extends State<Login> {
         title: Text('PC Setup Creator'),
         backgroundColor: Color(0xff202C39),
       ),
-      body: Container(
-        width: media.width,
-        decoration: BoxDecoration(color: Color(0xff202C39)),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          SizedBox(
-            height: 30,
-          ),
-          Align(
-            alignment: Alignment.topCenter,
-            child: Image(
-              width: 157,
-              height: 157,
-              image: AssetImage('assets/images/keyboard.png'),
+      body:
+          //This is for keyboard UI - see register file
+          SingleChildScrollView(
+        reverse: true,
+        physics: NeverScrollableScrollPhysics(),
+        child: Container(
+          width: media.width,
+          height: media.height,
+          decoration: BoxDecoration(color: Color(0xff202C39)),
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            SizedBox(
+              height: 30,
             ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Center(
-            child: Text(
-              'Login',
-              style: TextStyle(color: Color(0xff95AFBA), fontSize: 40),
+            Align(
+              alignment: Alignment.topCenter,
+              child: Image(
+                width: 157,
+                height: 157,
+                image: AssetImage('assets/images/keyboard.png'),
+              ),
             ),
-          ),
-          SizedBox(
-            height: 40,
-          ),
-          //Call custom function
-          Form('Email'),
-          Form('Password'),
-          Center(
-            child: TextButton(
-                onPressed: () {},
-                child: Text(
-                  'No account? Register!',
-                  style: TextStyle(color: Color(0xff95AFBA).withOpacity(0.7)),
-                )),
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Container(
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  shape: BoxShape.circle, color: Color(0xffF46036)),
-              child: IconButton(
+            SizedBox(
+              height: 20,
+            ),
+            Center(
+              child: Text(
+                'Login',
+                style: TextStyle(color: Color(0xff95AFBA), fontSize: 40),
+              ),
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            //Call custom function
+            Form('Email'),
+            Form('Password'),
+            Center(
+              child: TextButton(
                   onPressed: () {
-                    Navigator.pushReplacementNamed(context, 'home');
+                    Navigator.pushReplacementNamed(context, 'register');
                   },
-                  icon: Icon(
-                    Icons.arrow_forward,
-                    color: Colors.black,
-                  ))),
-        ]),
+                  child: Text(
+                    'No account? Register!',
+                    style: TextStyle(color: Color(0xff95AFBA).withOpacity(0.7)),
+                  )),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Container(
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle, color: Color(0xffF46036)),
+                child: IconButton(
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(context, 'home');
+                    },
+                    icon: Icon(
+                      Icons.arrow_forward,
+                      color: Colors.black,
+                    ))),
+          ]),
+        ),
       ),
     );
   }
@@ -120,7 +130,10 @@ class _FormState extends State<Form> {
                       borderSide:
                           BorderSide(color: Color(0xff95AFBA), width: 0)),
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(40))),
+                      borderRadius: BorderRadius.all(Radius.circular(5))),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: Color(0xff95AFBA), width: 2)),
                   fillColor: Color(0xff95AFBA),
                   filled: true,
                   //This is how you change heigh of TextField
