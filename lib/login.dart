@@ -3,6 +3,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:pc_setup_app/constants.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -20,7 +21,7 @@ class _LoginState extends State<Login> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Text('PC Setup Creator'),
-        backgroundColor: Color(0xff202C39),
+        backgroundColor: Color(backgroundColor),
       ),
       body:
           //This is for keyboard UI - see register file
@@ -30,7 +31,7 @@ class _LoginState extends State<Login> {
         child: Container(
           width: media.width,
           height: media.height,
-          decoration: BoxDecoration(color: Color(0xff202C39)),
+          decoration: BoxDecoration(color: Color(backgroundColor)),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             SizedBox(
@@ -50,7 +51,7 @@ class _LoginState extends State<Login> {
             Center(
               child: Text(
                 'Login',
-                style: TextStyle(color: Color(0xff95AFBA), fontSize: 40),
+                style: TextStyle(color: Color(greyTextColor), fontSize: 40),
               ),
             ),
             SizedBox(
@@ -66,7 +67,8 @@ class _LoginState extends State<Login> {
                   },
                   child: Text(
                     'No account? Register!',
-                    style: TextStyle(color: Color(0xff95AFBA).withOpacity(0.7)),
+                    style:
+                        TextStyle(color: Color(greyTextColor).withOpacity(0.7)),
                   )),
             ),
             SizedBox(
@@ -75,7 +77,7 @@ class _LoginState extends State<Login> {
             Container(
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                    shape: BoxShape.circle, color: Color(0xffF46036)),
+                    shape: BoxShape.circle, color: Color(orangeButtonColor)),
                 child: IconButton(
                     onPressed: () {
                       Navigator.pushReplacementNamed(context, 'home');
@@ -112,7 +114,8 @@ class _FormState extends State<Form> {
             child: Text(
               widget.formField,
               style: TextStyle(
-                  color: Color(0xffD2E59E).withOpacity(0.8), fontSize: 15),
+                  color: Color(greenButtonColor).withOpacity(0.8),
+                  fontSize: 15),
             )),
         Padding(
           padding: const EdgeInsets.only(left: 30, right: 30, top: 10),
@@ -121,20 +124,20 @@ class _FormState extends State<Form> {
             height: 50,
             child: TextField(
               style: TextStyle(
-                color: Color(0xff202C39),
+                color: Color(backgroundColor),
                 fontWeight: FontWeight.bold,
               ),
-              cursorColor: Color(0xff202C39),
+              cursorColor: Color(backgroundColor),
               decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
                       borderSide:
-                          BorderSide(color: Color(0xff95AFBA), width: 0)),
+                          BorderSide(color: Color(greyTextColor), width: 0)),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(5))),
                   focusedBorder: OutlineInputBorder(
                       borderSide:
-                          BorderSide(color: Color(0xff95AFBA), width: 2)),
-                  fillColor: Color(0xff95AFBA),
+                          BorderSide(color: Color(greyTextColor), width: 2)),
+                  fillColor: Color(greyTextColor),
                   filled: true,
                   //This is how you change heigh of TextField
                   isDense: true,

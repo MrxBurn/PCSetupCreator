@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:pc_setup_app/register.dart';
 import 'login.dart';
 import 'home.dart';
+import 'constants.dart';
 
 void main(List<String> args) {
   runApp(MyApp());
@@ -41,12 +42,12 @@ class StartPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('PC Setup Creator'),
-        backgroundColor: Color(0xff202C39),
+        backgroundColor: Color(backgroundColor),
       ),
       body: Container(
         width: media.width,
         decoration: BoxDecoration(
-          color: Color(0xff202C39),
+          color: Color(backgroundColor),
         ),
         child: Column(
           children: [
@@ -60,7 +61,7 @@ class StartPage extends StatelessWidget {
                   //With this I can now change the size of logo
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Color(0xffF46036),
+                    color: Color(orangeButtonColor),
                     shape: BoxShape.circle,
                   ),
                   child: Image(
@@ -80,7 +81,7 @@ class StartPage extends StatelessWidget {
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(40),
                       topRight: Radius.circular(40)),
-                  color: Color(0xff95AFBA).withOpacity(0.2),
+                  color: Color(greyTextColor).withOpacity(0.2),
                 ),
                 child: Column(
                   children: [
@@ -91,7 +92,7 @@ class StartPage extends StatelessWidget {
                           child: Text(
                             'Welcome!',
                             style: TextStyle(
-                                fontSize: 40, color: Color(0xff95AFBA)),
+                                fontSize: 40, color: Color(greyTextColor)),
                           ),
                         )),
                     Align(
@@ -101,7 +102,7 @@ class StartPage extends StatelessWidget {
                           child: Text(
                             'PC Setup Creator',
                             style: TextStyle(
-                                fontSize: 27, color: Color(0xff95AFBA)),
+                                fontSize: 27, color: Color(greyTextColor)),
                           ),
                         )),
                     Padding(
@@ -110,7 +111,8 @@ class StartPage extends StatelessWidget {
                         alignment: Alignment.bottomCenter,
                         child: Container(
                           decoration: BoxDecoration(
-                              shape: BoxShape.circle, color: Color(0xffD2E59E)),
+                              shape: BoxShape.circle,
+                              color: Color(greenButtonColor)),
                           child: IconButton(
                               onPressed: () {
                                 Navigator.pushReplacementNamed(
