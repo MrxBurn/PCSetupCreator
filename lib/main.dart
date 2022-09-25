@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:pc_setup_app/register.dart';
+import 'package:pc_setup_app/setupBudget.dart';
 import 'login.dart';
 import 'home.dart';
 import 'constants.dart';
@@ -25,7 +26,9 @@ class MyApp extends StatelessWidget {
         'login': ((context) => Login()),
         'welcome': (context) => StartPage(),
         'home': ((context) => HomePage()),
-        'register': ((context) => Register())
+        'register': ((context) => Register()),
+        //TODO: add the loading screen after login/register
+        'setupBudget': (((context) => SetupBudget()))
       },
       home: StartPage(),
     );

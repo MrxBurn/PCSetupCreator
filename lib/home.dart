@@ -85,7 +85,9 @@ class _HomeState extends State<Home> {
                       color: Color(orangeButtonColor),
                     ),
                     child: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).pushNamed('setupBudget');
+                        },
                         icon: Icon(
                           Icons.add,
                           color: Colors.black,
