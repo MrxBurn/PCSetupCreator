@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:pc_setup_app/constants.dart';
-import 'setup.dart';
+import 'package:pc_setup_app/classes_constants/constants.dart';
+import 'classes_constants/setup.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -10,6 +10,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Color(backgroundColor),
         appBar: AppBar(
           elevation: 0,
           title: Center(
@@ -56,45 +57,39 @@ class _HomeState extends State<Home> {
     return setups.isEmpty
         ? Container(
             width: media.width,
-            height: media.height,
             decoration: BoxDecoration(
-              color: Color(backgroundColor),
-            ),
-            child: Container(
-              decoration: BoxDecoration(
-                  color: Color(greyTextColor).withOpacity(0.2),
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(40),
-                    topRight: Radius.circular(40),
-                  )),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    noSetup,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(color: Color(greyTextColor)),
+                color: Color(greyTextColor).withOpacity(0.2),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(40),
+                  topRight: Radius.circular(40),
+                )),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  noSetup,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Color(greyTextColor)),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color(orangeButtonColor),
                   ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Color(orangeButtonColor),
-                    ),
-                    child: IconButton(
-                        onPressed: () {
-                          Navigator.of(context).pushNamed('setupBudget');
-                        },
-                        icon: Icon(
-                          Icons.add,
-                          color: Colors.black,
-                        )),
-                  )
-                ],
-              ),
+                  child: IconButton(
+                      onPressed: () {
+                        Navigator.of(context).pushNamed('createSetup');
+                      },
+                      icon: Icon(
+                        Icons.add,
+                        color: Colors.black,
+                      )),
+                )
+              ],
             ),
           )
         : Container(

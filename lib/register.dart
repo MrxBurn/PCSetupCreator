@@ -3,7 +3,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:pc_setup_app/constants.dart';
+import 'package:pc_setup_app/classes_constants/constants.dart';
+import 'package:pc_setup_app/classes_constants/nextButton.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -18,6 +19,7 @@ class _RegisterState extends State<Register> {
     var media = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: Color(backgroundColor),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Text('PC Setup Creator'),
@@ -28,57 +30,39 @@ class _RegisterState extends State<Register> {
           SingleChildScrollView(
         physics: NeverScrollableScrollPhysics(),
         reverse: true,
-        child: Container(
-          width: media.width,
-          height: media.height,
-          decoration: BoxDecoration(color: Color(backgroundColor)),
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            SizedBox(
-              height: 30,
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          SizedBox(
+            height: 30,
+          ),
+          Align(
+            alignment: Alignment.topCenter,
+            child: Image(
+              width: 157,
+              height: 157,
+              image: AssetImage('assets/images/mouse.png'),
             ),
-            Align(
-              alignment: Alignment.topCenter,
-              child: Image(
-                width: 157,
-                height: 157,
-                image: AssetImage('assets/images/mouse.png'),
-              ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Center(
+            child: Text(
+              'Register',
+              style: TextStyle(color: Color(greyTextColor), fontSize: 40),
             ),
-            SizedBox(
-              height: 20,
-            ),
-            Center(
-              child: Text(
-                'Register',
-                style: TextStyle(color: Color(greyTextColor), fontSize: 40),
-              ),
-            ),
-            SizedBox(
-              height: 40,
-            ),
-            //Call custom function
-            Form('First Name'),
-            Form('Email'),
-            Form('Password'),
+          ),
+          SizedBox(
+            height: 40,
+          ),
+          //Call custom function
+          Form('First Name'),
+          Form('Email'),
+          Form('Password'),
 
-            SizedBox(
-              height: 30,
-            ),
-            Container(
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle, color: Color(orangeButtonColor)),
-                child: IconButton(
-                    onPressed: () {
-                      Navigator.pushReplacementNamed(context, 'home');
-                    },
-                    icon: Icon(
-                      Icons.arrow_forward,
-                      color: Colors.black,
-                    ))),
-          ]),
-        ),
+          Align(
+              alignment: Alignment.center,
+              child: NextButton(30, 'home', orangeButtonColor))
+        ]),
       ),
     );
   }
